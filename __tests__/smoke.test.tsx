@@ -33,6 +33,9 @@ describe("marketing page", () => {
       screen.getByRole("img", { name: /discovery question editor/i }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole("region", { name: /scrollable product preview/i }),
+    ).toHaveAttribute("tabindex", "0");
+    expect(
       screen.getByRole("region", {
         name: /from vague request to clear scope/i,
       }),

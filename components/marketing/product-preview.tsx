@@ -27,18 +27,27 @@ export function ProductPreview() {
         </div>
 
         <figure className="mt-12">
-          <div className="overflow-hidden border border-line bg-paper shadow-[0_26px_70px_rgba(32,40,58,0.12)]">
+          <div
+            aria-label="Scrollable product preview"
+            className="overflow-x-auto border border-line bg-paper shadow-[0_26px_70px_rgba(32,40,58,0.12)]"
+            role="region"
+            tabIndex={0}
+          >
             <Image
               alt="ClientFlow discovery question editor showing editable salon website questions"
-              className="h-auto w-full"
+              className="h-auto w-full min-w-[48rem] sm:min-w-0"
               height={1058}
-              sizes="(max-width: 1280px) 100vw, 1184px"
+              loading="eager"
+              sizes="(max-width: 639px) 768px, (max-width: 1280px) 100vw, 1184px"
               src="/images/clientflow-discovery-questions.png"
               width={1487}
             />
           </div>
           <figcaption className="mt-4 flex flex-col gap-2 text-sm leading-6 text-muted-ink sm:flex-row sm:justify-between">
             <span>Concept preview — discovery question editor</span>
+            <span className="sm:hidden">
+              Swipe or use arrow keys to explore the full workspace.
+            </span>
             <span>AI suggests. The freelancer reviews and approves.</span>
           </figcaption>
         </figure>

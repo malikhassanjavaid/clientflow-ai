@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Newsreader } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,9 +8,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const newsreader = Newsreader({
+const newsreader = localFont({
+  src: "./fonts/newsreader-latin.woff2",
   variable: "--font-newsreader",
-  subsets: ["latin"],
+  display: "swap",
+  weight: "200 800",
+  style: "normal",
+  adjustFontFallback: "Times New Roman",
 });
 
 export const metadata: Metadata = {
