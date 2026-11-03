@@ -1,12 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-describe("component test foundation", () => {
-  it("renders React and exposes DOM matchers", () => {
-    render(<h1>ClientFlow test foundation</h1>);
+import Home from "@/app/page";
+
+describe("marketing page", () => {
+  it("introduces ClientFlow with accessible page landmarks", () => {
+    render(<Home />);
 
     expect(
-      screen.getByRole("heading", { name: /clientflow test foundation/i }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: /turn unclear client requests into proposal-ready projects/i,
+      }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(
+      screen.getByRole("navigation", { name: /primary/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
+    expect(
+      screen
+        .getAllByRole("link", { name: /see how it works/i })
+        .every((link) => link.getAttribute("href") === "#how-it-works"),
+    ).toBe(true);
+    expect(
+      screen.getByRole("link", { name: /skip to content/i }),
+    ).toHaveAttribute("href", "#main-content");
   });
 });
