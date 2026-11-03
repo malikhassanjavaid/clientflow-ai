@@ -26,5 +26,16 @@ describe("marketing page", () => {
     expect(
       screen.getByRole("link", { name: /skip to content/i }),
     ).toHaveAttribute("href", "#main-content");
+    expect(
+      screen.getByText("I need a website for my salon."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /discovery question editor/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", {
+        name: /from vague request to clear scope/i,
+      }),
+    ).toBeInTheDocument();
   });
 });
