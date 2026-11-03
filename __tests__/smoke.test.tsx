@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import Home from "@/app/page";
@@ -37,5 +37,17 @@ describe("marketing page", () => {
         name: /from vague request to clear scope/i,
       }),
     ).toBeInTheDocument();
+
+    const workflow = screen.getByRole("list", {
+      name: /request-to-decision workflow/i,
+    });
+    expect(within(workflow).getAllByRole("listitem")).toHaveLength(6);
+    expect(
+      screen.getByRole("heading", { name: /ai drafts, you approve/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/nothing is shared before you review it/i),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });
 });

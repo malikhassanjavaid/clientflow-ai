@@ -1,7 +1,11 @@
+import { FinalCta } from "@/components/marketing/final-cta";
 import { HeroSection } from "@/components/marketing/hero-section";
+import { HumanControlSection } from "@/components/marketing/human-control-section";
 import { ProductPreview } from "@/components/marketing/product-preview";
 import { RequestTransformation } from "@/components/marketing/request-transformation";
+import { SiteFooter } from "@/components/marketing/site-footer";
 import { SiteHeader } from "@/components/marketing/site-header";
+import { WorkflowSection } from "@/components/marketing/workflow-section";
 
 export default function Home() {
   return (
@@ -11,10 +15,11 @@ export default function Home() {
         <HeroSection />
         <RequestTransformation />
         <ProductPreview />
-        <section id="how-it-works" />
-        <section id="why-clientflow" />
-        <section id="human-control" />
+        <WorkflowSection />
+        <HumanControlSection />
+        <FinalCta />
       </main>
+      <SiteFooter />
     </div>
   );
 }
