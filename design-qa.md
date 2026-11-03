@@ -40,6 +40,7 @@ No P0, P1, or P2 issues remain after the browser QA iterations below.
 1. **P1 — development font request blocked rendering.** `next/font/google` could not fetch Newsreader during local development. Replaced it with the exact Latin variable font already emitted by a verified Next.js build and added an asset test.
 2. **P2 — product preview became illegible at narrow widths.** Added a contained horizontal scroll region, a 48rem mobile minimum image width, keyboard focus, and a concise swipe/arrow-key instruction. Rechecked at 320 px with no page overflow.
 3. **P2 — Next.js reported the product image as LCP without eager loading.** Added `loading="eager"` and responsive `sizes`; a post-fix reload produced no new warning.
+4. **P1 — muted text missed the WCAG normal-text contrast threshold.** Darkened `--muted-ink` from `#687083` to `#626a7c` and added a regression test. The final ratios are 4.69:1 on ivory and 5.34:1 on paper.
 
 ## Deferred considerations
 
