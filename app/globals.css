@@ -8,6 +8,7 @@
   --muted-ink: #626a7c;
   --cobalt: #3d55d9;
   --cobalt-dark: #2739aa;
+  --cobalt-soft: #e8ebff;
   --peach: #f3c7b0;
   --line: #d8d2c7;
   --success: #28765d;
@@ -21,6 +22,7 @@
   --color-muted-ink: var(--muted-ink);
   --color-cobalt: var(--cobalt);
   --color-cobalt-dark: var(--cobalt-dark);
+  --color-cobalt-soft: var(--cobalt-soft);
   --color-peach: var(--peach);
   --color-line: var(--line);
   --color-success: var(--success);
@@ -41,6 +43,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 ::selection {
   background: var(--peach);
   color: var(--ink);
@@ -54,14 +66,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
   }
 }

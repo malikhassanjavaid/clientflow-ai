@@ -10,7 +10,7 @@ describe("marketing page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /turn unclear client requests into proposal-ready projects/i,
+        name: /turn vague client requests into clear, client-ready proposals/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByRole("banner")).toBeInTheDocument();
@@ -19,18 +19,21 @@ describe("marketing page", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
     expect(
-      screen
-        .getAllByRole("link", { name: /see how it works/i })
-        .every((link) => link.getAttribute("href") === "#how-it-works"),
-    ).toBe(true);
+      screen.getByRole("link", { name: /see the three-step workflow/i }),
+    ).toHaveAttribute("href", "#how-it-works");
+    expect(
+      screen.getByRole("link", { name: /preview the product demo/i }),
+    ).toHaveAttribute("href", "#product-preview");
     expect(
       screen.getByRole("link", { name: /skip to content/i }),
     ).toHaveAttribute("href", "#main-content");
     expect(
-      screen.getByText("I need a website for my salon."),
-    ).toBeInTheDocument();
+      screen.getAllByText(/i need a website for my salon/i),
+    ).toHaveLength(2);
     expect(
-      screen.getByRole("img", { name: /discovery question editor/i }),
+      screen.getByRole("img", {
+        name: /discovery question editor/i,
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("region", { name: /scrollable product preview/i }),
@@ -46,11 +49,14 @@ describe("marketing page", () => {
     });
     expect(within(workflow).getAllByRole("listitem")).toHaveLength(6);
     expect(
-      screen.getByRole("heading", { name: /ai drafts, you approve/i }),
+      screen.getByRole("heading", {
+        name: /ai drafts, you approve/i,
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/nothing is shared before you review it/i),
     ).toBeInTheDocument();
+    expect(screen.getByText(/no client account required/i)).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });
 });

@@ -4,7 +4,7 @@ export function Brand() {
       <span className="font-editorial text-2xl font-semibold tracking-[-0.035em] text-ink">
         ClientFlow
       </span>
-      <span className="font-sans text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cobalt">
+      <span className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-cobalt">
         AI
       </span>
     </span>
