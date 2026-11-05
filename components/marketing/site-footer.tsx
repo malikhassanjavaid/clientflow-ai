@@ -9,8 +9,8 @@ export function SiteFooter() {
         <div>
           <Brand />
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-ink">
-            A proposal-planning workspace for freelancers who want clearer
-            client conversations and full control over AI drafts.
+            From the client&apos;s first vague message to a proposal both sides
+            understand—without giving up control to AI.
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-3">

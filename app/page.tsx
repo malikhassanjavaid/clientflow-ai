@@ -13,8 +13,8 @@ export default function Home() {
       <SiteHeader />
       <main id="main-content">
         <HeroSection />
-        <RequestTransformation />
         <ProductPreview />
+        <RequestTransformation />
         <WorkflowSection />
         <HumanControlSection />
         <FinalCta />
