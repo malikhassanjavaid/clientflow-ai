@@ -14,7 +14,7 @@ export function ProductPreview() {
               className="max-w-4xl font-editorial text-4xl font-medium leading-tight tracking-[-0.035em] text-paper sm:text-6xl"
               id="product-preview-title"
             >
-              See the complete journey before you try it.
+              Watch the journey from request to proposal.
             </h2>
           </div>
           <p className="max-w-md text-base leading-7 text-paper/70 lg:justify-self-end">

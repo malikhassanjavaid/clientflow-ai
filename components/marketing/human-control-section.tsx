@@ -1,19 +1,19 @@
 const controlPromises = [
   {
     number: "01",
-    title: "Clients answer without an account",
+    title: "Clients answer without a login",
     description:
-      "Share a focused link instead of asking a client to create another login before the project has even started.",
+      "Share a focused link so the client can respond without creating another login.",
   },
   {
     number: "02",
-    title: "AI never sends on your behalf",
+    title: "AI sends nothing without you",
     description:
       "Questions, requirements, and proposal language remain drafts until you review and approve them.",
   },
   {
     number: "03",
-    title: "Your price stays your decision",
+    title: "You decide the final price",
     description:
       "AI can organize the scope, but only you set the investment, terms, exclusions, and final commitment.",
   },
@@ -57,7 +57,7 @@ export function HumanControlSection() {
                 </span>
                 <span className="h-px w-8 bg-paper/25" />
               </div>
-              <h3 className="mt-7 max-w-xs font-editorial text-3xl leading-tight text-paper">
+              <h3 className="mt-7 max-w-56 font-editorial text-3xl leading-tight text-paper">
                 {promise.title}
               </h3>
               <p className="mt-4 max-w-sm text-sm leading-6 text-paper/65">

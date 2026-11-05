@@ -10,7 +10,7 @@ export function SiteFooter() {
           <Brand />
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-ink">
             From the client&apos;s first vague message to a proposal both sides
-            understand—without giving up control to AI.
+            understand—while keeping your judgment in control.
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-3">

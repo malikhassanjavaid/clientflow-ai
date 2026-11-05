@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20 lg:px-12 lg:py-28">
         <div>
           <h1
-            className="max-w-4xl font-editorial text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-ink sm:text-7xl lg:text-[4.5rem]"
+            className="max-w-4xl font-editorial text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-ink sm:text-6xl lg:text-[4rem]"
             id="hero-title"
           >
             {productPromise}

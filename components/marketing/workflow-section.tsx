@@ -49,7 +49,7 @@ export function WorkflowSection() {
                 </span>
               </div>
 
-              <h3 className="mt-12 max-w-xs font-editorial text-3xl leading-tight text-ink">
+              <h3 className="mt-12 font-editorial text-3xl leading-tight text-ink">
                 {stage.title}
               </h3>
               <p className="mt-4 max-w-sm text-sm leading-6 text-muted-ink">

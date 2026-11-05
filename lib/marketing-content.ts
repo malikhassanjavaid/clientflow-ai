@@ -62,7 +62,7 @@ export const workflowStages: readonly WorkflowStage[] = [
     id: "propose",
     number: "03",
     eyebrow: "Propose",
-    title: "Share a confident next step",
+    title: "Turn scope into agreement",
     description:
       "Build the scope, milestones, timeline, and your chosen price into a versioned proposal with a recorded client decision.",
     steps: [
