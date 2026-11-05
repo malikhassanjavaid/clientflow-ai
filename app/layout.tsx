@@ -18,9 +18,9 @@ const newsreader = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ClientFlow AI — From vague requests to clear proposals",
+  title: "ClientFlow AI — Clear briefs and client-ready proposals",
   description:
-    "ClientFlow AI helps freelancers turn unclear client requests into reviewed discovery questions, requirements, and professional proposals.",
+    "ClientFlow helps freelancers turn vague client requests into reviewed discovery questions, clear requirements, and client-ready proposals.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
