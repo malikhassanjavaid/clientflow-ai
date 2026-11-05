@@ -3,16 +3,18 @@ import { describe, expect, it } from "vitest";
 import {
   navigationItems,
   productPromise,
-  workflowSteps,
+  workflowStages,
 } from "@/lib/marketing-content";
 
 describe("marketing content", () => {
   it("defines the core product promise and complete workflow", () => {
     expect(productPromise).toBe(
-      "Turn unclear client requests into proposal-ready projects.",
+      "Turn vague client requests into clear, client-ready proposals.",
     );
-    expect(workflowSteps).toHaveLength(6);
-    expect(workflowSteps.map((step) => step.id)).toEqual([
+    expect(workflowStages).toHaveLength(3);
+    expect(
+      workflowStages.flatMap((stage) => stage.steps.map((step) => step.id)),
+    ).toEqual([
       "request",
       "questions",
       "answers",

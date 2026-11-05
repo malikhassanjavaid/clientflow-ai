@@ -11,13 +11,20 @@ export interface WorkflowStep {
     | "requirements"
     | "proposal"
     | "decision";
+  label: string;
+}
+
+export interface WorkflowStage {
+  id: "discover" | "define" | "propose";
   number: string;
+  eyebrow: string;
   title: string;
   description: string;
+  steps: readonly WorkflowStep[];
 }
 
 export const productPromise: string =
-  "Turn unclear client requests into proposal-ready projects.";
+  "Turn vague client requests into clear, client-ready proposals.";
 
 export const navigationItems: readonly NavigationItem[] = [
   { label: "How it works", href: "#how-it-works" },
@@ -26,47 +33,41 @@ export const navigationItems: readonly NavigationItem[] = [
   { label: "Human control", href: "#human-control" },
 ];
 
-export const workflowSteps: readonly WorkflowStep[] = [
+export const workflowStages: readonly WorkflowStage[] = [
   {
-    id: "request",
+    id: "discover",
     number: "01",
-    title: "Capture the request",
+    eyebrow: "Discover",
+    title: "Understand the real request",
     description:
-      "Save the client, their original words, and the context you already know without rewriting the source.",
+      "Keep the client’s original message, then use AI to surface the questions that separate an idea from a workable project.",
+    steps: [
+      { id: "request", label: "Capture the original request" },
+      { id: "questions", label: "Review AI discovery questions" },
+    ],
   },
   {
-    id: "questions",
+    id: "define",
     number: "02",
-    title: "Shape discovery questions",
+    eyebrow: "Define",
+    title: "Turn answers into scope",
     description:
-      "Use AI to surface missing details, then edit and approve every question before the client sees it.",
+      "Collect focused answers through a no-account client form and shape them into requirements you can verify and edit.",
+    steps: [
+      { id: "answers", label: "Collect clear client answers" },
+      { id: "requirements", label: "Approve structured requirements" },
+    ],
   },
   {
-    id: "answers",
+    id: "propose",
     number: "03",
-    title: "Collect clear answers",
+    eyebrow: "Propose",
+    title: "Share a confident next step",
     description:
-      "Share a secure, no-account form that keeps the client focused on the decisions the project needs.",
-  },
-  {
-    id: "requirements",
-    number: "04",
-    title: "Review the requirements",
-    description:
-      "Turn the request and answers into structured requirements while keeping assumptions visible for review.",
-  },
-  {
-    id: "proposal",
-    number: "05",
-    title: "Build the proposal",
-    description:
-      "Edit the scope, milestones, timeline, exclusions, and your chosen price in one client-ready document.",
-  },
-  {
-    id: "decision",
-    number: "06",
-    title: "Record the decision",
-    description:
-      "Share a fixed proposal version so the client can accept, reject, or request a clearly recorded change.",
+      "Build the scope, milestones, timeline, and your chosen price into a versioned proposal with a recorded client decision.",
+    steps: [
+      { id: "proposal", label: "Edit the client-ready proposal" },
+      { id: "decision", label: "Record the final decision" },
+    ],
   },
 ];

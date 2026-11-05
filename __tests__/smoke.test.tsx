@@ -45,9 +45,9 @@ describe("marketing page", () => {
     ).toBeInTheDocument();
 
     const workflow = screen.getByRole("list", {
-      name: /request-to-decision workflow/i,
+      name: /three-stage clientflow workflow/i,
     });
-    expect(within(workflow).getAllByRole("listitem")).toHaveLength(6);
+    expect(within(workflow).getAllByRole("listitem")).toHaveLength(3);
     expect(
       screen.getByRole("heading", {
         name: /ai drafts, you approve/i,
