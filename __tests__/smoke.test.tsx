@@ -50,7 +50,7 @@ describe("marketing page", () => {
     expect(within(workflow).getAllByRole("listitem")).toHaveLength(3);
     expect(
       screen.getByRole("heading", {
-        name: /ai drafts, you approve/i,
+        name: /ai handles the blank page. you keep the judgment/i,
       }),
     ).toBeInTheDocument();
     expect(

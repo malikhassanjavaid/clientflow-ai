@@ -1,18 +1,21 @@
-const reviewBoundaries = [
+const controlPromises = [
   {
-    title: "AI suggests",
+    number: "01",
+    title: "Clients answer without an account",
     description:
-      "It can surface missing details and draft useful language from the context you provide.",
+      "Share a focused link instead of asking a client to create another login before the project has even started.",
   },
   {
-    title: "You edit",
+    number: "02",
+    title: "AI never sends on your behalf",
     description:
-      "Change, remove, reorder, or rewrite anything so the work reflects your judgment and process.",
+      "Questions, requirements, and proposal language remain drafts until you review and approve them.",
   },
   {
-    title: "You approve",
+    number: "03",
+    title: "Your price stays your decision",
     description:
-      "Nothing is shared before you review it, and AI never chooses your final price or commitment.",
+      "AI can organize the scope, but only you set the investment, terms, exclusions, and final commitment.",
   },
 ] as const;
 
@@ -24,46 +27,55 @@ export function HumanControlSection() {
       id="why-clientflow"
     >
       <div
-        className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-12"
+        className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12"
         id="human-control"
       >
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-peach">
-            Human judgment stays in the loop
-          </p>
-          <h2
-            className="mt-5 max-w-xl font-editorial text-4xl font-medium leading-tight tracking-[-0.035em] text-paper sm:text-6xl"
-            id="human-control-title"
-          >
-            AI drafts, you approve.
-          </h2>
-          <p className="mt-6 max-w-lg text-lg leading-8 text-paper/70">
-            ClientFlow is designed as a review workspace, not an autonomous
-            agent. Your expertise remains the final checkpoint.
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
+          <div>
+            <h2
+              className="max-w-4xl font-editorial text-4xl font-medium leading-tight tracking-[-0.035em] text-paper sm:text-6xl"
+              id="human-control-title"
+            >
+              AI handles the blank page. You keep the judgment.
+            </h2>
+          </div>
+          <p className="max-w-md text-base leading-7 text-paper/70 lg:justify-self-end">
+            ClientFlow speeds up the repetitive thinking without pretending it
+            knows your client, reputation, or business better than you do.
           </p>
         </div>
 
-        <dl className="border-t border-paper/30">
-          {reviewBoundaries.map((boundary, index) => (
-            <div
-              className="grid gap-3 border-b border-paper/20 py-6 sm:grid-cols-[13rem_1fr] sm:gap-5"
-              key={boundary.title}
+        <div className="mt-14 grid border-y border-paper/20 lg:grid-cols-3">
+          {controlPromises.map((promise) => (
+            <article
+              className="border-b border-paper/15 py-7 last:border-b-0 lg:border-b-0 lg:border-r lg:px-8 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
+              key={promise.number}
             >
-              <dt className="flex gap-5 font-semibold text-paper">
-                <span
-                  aria-hidden="true"
-                  className="font-editorial text-xl font-normal text-peach"
-                >
-                  0{index + 1}
+              <div className="flex items-center gap-3">
+                <span className="font-editorial text-xl text-peach">
+                  {promise.number}
                 </span>
-                <span>{boundary.title}</span>
-              </dt>
-              <dd className="leading-7 text-paper/70">
-                {boundary.description}
-              </dd>
-            </div>
+                <span className="h-px w-8 bg-paper/25" />
+              </div>
+              <h3 className="mt-7 max-w-xs font-editorial text-3xl leading-tight text-paper">
+                {promise.title}
+              </h3>
+              <p className="mt-4 max-w-sm text-sm leading-6 text-paper/65">
+                {promise.description}
+              </p>
+            </article>
           ))}
-        </dl>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 rounded-xl border border-peach/30 bg-paper/5 px-5 py-4 text-sm leading-6 text-paper/80 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <span className="font-semibold text-paper">
+            The rule stays simple:
+          </span>
+          <span>
+            Nothing is shared before you review it. Nothing becomes final
+            without you.
+          </span>
+        </div>
       </div>
     </section>
   );
