@@ -40,7 +40,7 @@ describe("marketing page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("region", {
-        name: /from vague request to clear scope/i,
+        name: /from a one-line request to a scope both sides understand/i,
       }),
     ).toBeInTheDocument();
 
