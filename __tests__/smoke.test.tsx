@@ -32,12 +32,12 @@ describe("marketing page", () => {
     ).toHaveLength(2);
     expect(
       screen.getByRole("img", {
-        name: /discovery question editor/i,
+        name: /clientflow dashboard demo video placeholder/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("region", { name: /scrollable product preview/i }),
-    ).toHaveAttribute("tabindex", "0");
+      screen.getByText(/full dashboard demo coming after the product is built/i),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("region", {
         name: /from vague request to clear scope/i,
