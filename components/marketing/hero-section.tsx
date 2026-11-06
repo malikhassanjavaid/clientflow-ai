@@ -1,147 +1,139 @@
+import {
+  ArrowRight,
+  ChatCircleDots,
+  FileText,
+  PlayCircle,
+  Trophy,
+} from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+
 import { productPromise } from "@/lib/marketing-content";
 
-const outcomeSteps = [
-  { label: "Smart discovery questions", status: "Reviewed" },
-  { label: "Clear project requirements", status: "Ready" },
-  { label: "Client-ready proposal", status: "Your price" },
-] as const;
-
-const trustPoints = [
-  "No client account required",
-  "Nothing sends without review",
-  "Your pricing stays yours",
+const transformationSteps = [
+  {
+    description: "“I need a website for my salon. Can you tell me the price?”",
+    icon: ChatCircleDots,
+    title: "Vague request",
+  },
+  {
+    description: "Clear scope, timeline, and price, all in one place.",
+    icon: FileText,
+    title: "Ready to review",
+  },
+  {
+    description: "Project won",
+    icon: Trophy,
+    title: "Proposal accepted —",
+  },
 ] as const;
 
 export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden border-b border-line"
+      className="relative overflow-hidden bg-hero-surface"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_26%,rgba(61,85,217,0.13),transparent_27%),radial-gradient(circle_at_12%_10%,rgba(243,199,176,0.22),transparent_24%)]" />
-
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20 lg:px-12 lg:py-28">
-        <div>
+      <div className="relative mx-auto w-full max-w-[120rem] px-5 py-8 sm:px-8 sm:py-10 lg:h-[calc(100svh-3.5rem)] lg:min-h-[30rem] lg:max-h-[49rem] lg:px-0 lg:py-0">
+        <div className="clientflow-hero-copy relative z-20 min-w-0 max-w-2xl lg:absolute lg:left-[3.7%] lg:top-[6%] lg:w-[44%]">
           <h1
-            className="max-w-4xl font-editorial text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-ink sm:text-6xl lg:text-[4rem]"
+            className="clientflow-hero-title max-w-full font-editorial text-[2.55rem] font-semibold leading-[0.98] tracking-[-0.04em] text-hero-forest sm:max-w-[42rem] sm:text-[3.5rem] sm:leading-[0.98] lg:text-[3rem]"
             id="hero-title"
           >
             {productPromise}
           </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-ink sm:text-xl sm:leading-9">
-            Save the request, let AI suggest the missing questions, collect
-            answers without a client login, and shape the final scope,
-            timeline, and price before anything is shared.
+          <p className="clientflow-hero-description mt-4 max-w-full text-base leading-6 text-hero-muted sm:max-w-[36rem] sm:text-lg sm:leading-7 lg:text-base lg:leading-6">
+            Collect the missing details, define the scope, prepare the timeline
+            and price, then review everything before it reaches your client.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="clientflow-hero-actions mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
             <a
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-cobalt px-6 py-3 font-semibold text-white shadow-[0_12px_30px_rgba(61,85,217,0.22)] transition-colors hover:bg-cobalt-dark sm:w-auto"
+              className="clientflow-hero-primary inline-flex min-h-11 w-full items-center justify-center whitespace-nowrap rounded-md bg-hero-accent px-5 py-2.5 text-sm font-bold text-white shadow-[0_10px_24px_rgba(125,33,56,0.17)] transition-[background-color,transform,box-shadow] hover:-translate-y-0.5 hover:bg-hero-accent-dark hover:shadow-[0_14px_28px_rgba(125,33,56,0.22)] sm:w-auto"
               href="#how-it-works"
             >
               See the three-step workflow
             </a>
             <a
-              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm border border-line bg-paper px-6 py-3 font-semibold text-ink transition-colors hover:border-cobalt hover:text-cobalt sm:w-auto"
+              className="clientflow-hero-secondary inline-flex min-h-11 w-full items-center justify-center gap-2 whitespace-nowrap px-1 py-2 text-sm font-bold text-hero-forest underline decoration-hero-forest/35 underline-offset-4 transition-colors hover:text-hero-accent hover:decoration-hero-accent sm:w-auto"
               href="#product-preview"
             >
-              <svg
+              <PlayCircle
                 aria-hidden="true"
-                className="h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M6.5 4.8v10.4c0 .65.72 1.03 1.25.66l7.35-5.2a.8.8 0 0 0 0-1.32l-7.35-5.2A.77.77 0 0 0 6.5 4.8Z" />
-              </svg>
+                className="text-hero-accent"
+                size={26}
+                weight="regular"
+              />
               Preview the product demo
             </a>
           </div>
 
-          <ul className="mt-8 flex flex-col gap-3 text-sm text-muted-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
-            {trustPoints.map((point) => (
-              <li className="flex items-center gap-2" key={point}>
-                <svg
-                  aria-hidden="true"
-                  className="h-4 w-4 shrink-0 text-success"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="m4.5 10.5 3.25 3.25 7.75-8"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.8"
-                  />
-                </svg>
-                {point}
-              </li>
-            ))}
-          </ul>
+          <p className="clientflow-hero-trust mt-3 max-w-xl text-xs leading-4 text-hero-muted">
+            No client account required · Nothing sends without review · Your
+            pricing stays yours
+          </p>
         </div>
 
-        <aside
-          aria-label="From client message to proposal preview"
-          className="relative mx-auto w-full max-w-xl lg:mx-0"
-        >
-          <div className="absolute -inset-5 -z-10 rotate-2 rounded-[2rem] bg-peach/45" />
-          <div className="overflow-hidden rounded-2xl border border-line bg-paper shadow-[0_28px_80px_rgba(32,40,58,0.16)]">
-            <div className="flex items-center justify-between border-b border-line px-5 py-4">
-              <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff8c7a]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#f3c75f]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#62b98b]" />
-              </div>
-              <span className="text-xs font-semibold text-muted-ink">
-                New client request
-              </span>
-            </div>
+        <figure className="clientflow-hero-visual hero-visual-in relative mt-8 h-[22rem] overflow-hidden rounded-[2.5rem] sm:h-[28rem] lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:h-auto lg:w-[62%] lg:rounded-none lg:[clip-path:ellipse(70%_80%_at_76%_60%)]">
+          <Image
+            alt="Freelancer celebrating after winning a client project with a clear ClientFlow proposal."
+            className="object-cover object-[61%_center] lg:object-[74%_center]"
+            fill
+            preload
+            sizes="(max-width: 1023px) 100vw, 62vw"
+            src="/images/clientflow-freelancer-celebration.png"
+          />
+        </figure>
 
-            <div className="p-5 sm:p-7">
-              <div className="max-w-[90%] rounded-xl rounded-tl-sm bg-ivory px-4 py-3 text-sm leading-6 text-ink">
-                “I need a website for my salon. Can you tell me the price?”
-              </div>
+        <div className="clientflow-workflow-card hero-outcome-in relative z-30 -mt-8 overflow-hidden rounded-2xl bg-paper px-5 py-4 text-hero-forest shadow-[0_18px_45px_rgba(16,35,63,0.13)] sm:mx-8 sm:px-6 lg:absolute lg:bottom-[3%] lg:left-[15%] lg:mt-0 lg:min-h-24 lg:w-[70%] lg:px-5 lg:py-3">
+          <ol
+            aria-label="From vague request to accepted proposal"
+            className="clientflow-workflow-list grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1.08fr] lg:items-center lg:gap-3"
+          >
+            {transformationSteps.map((step, index) => {
+              const Icon = step.icon;
 
-              <div className="my-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-cobalt">
-                <span className="h-px flex-1 bg-cobalt/20" />
-                ClientFlow adds clarity
-                <span className="h-px flex-1 bg-cobalt/20" />
-              </div>
-
-              <div className="divide-y divide-line border-y border-line">
-                {outcomeSteps.map((step, index) => (
-                  <div
-                    className="flex items-center gap-3 py-3.5"
-                    key={step.label}
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cobalt-soft text-xs font-bold text-cobalt-dark">
-                      0{index + 1}
-                    </span>
-                    <span className="min-w-0 flex-1 text-sm font-semibold text-ink">
-                      {step.label}
-                    </span>
-                    <span className="rounded-full bg-success/10 px-2.5 py-1 text-xs font-bold uppercase tracking-[0.06em] text-success">
-                      {step.status}
-                    </span>
+              return (
+                <li
+                  className="contents"
+                  key={step.title}
+                >
+                  <div className="clientflow-workflow-step grid min-w-0 grid-cols-[2.5rem_1fr] items-start gap-2.5">
+                    <Icon
+                      aria-hidden="true"
+                      className={`clientflow-workflow-icon mt-0.5 h-10 w-10 ${
+                        index === 2 ? "text-hero-forest" : ""
+                      }`}
+                      size={40}
+                      weight="regular"
+                    />
+                    <div className="min-w-0">
+                      <p className="clientflow-workflow-title font-editorial text-base font-bold leading-5">
+                        {step.title}
+                      </p>
+                      <p
+                        className={`clientflow-workflow-description mt-0.5 text-xs leading-4 text-hero-muted ${
+                          index === 2 ? "font-semibold" : "italic"
+                        }`}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-5 flex items-center justify-between rounded-xl bg-ink px-4 py-3.5 text-paper">
-                <div>
-                  <p className="text-xs text-paper/65">Next action</p>
-                  <p className="mt-0.5 text-sm font-semibold">
-                    Review before sharing
-                  </p>
-                </div>
-                <span className="rounded-full bg-peach px-3 py-1.5 text-xs font-bold text-ink">
-                  You decide
-                </span>
-              </div>
-            </div>
-          </div>
-        </aside>
+                  {index < transformationSteps.length - 1 ? (
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="clientflow-workflow-arrow hidden text-hero-accent lg:block"
+                      size={22}
+                      weight="bold"
+                    />
+                  ) : null}
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </section>
   );
