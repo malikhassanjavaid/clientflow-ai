@@ -3,6 +3,7 @@ export function FinalCta() {
     <section
       aria-labelledby="final-cta-title"
       className="relative overflow-hidden bg-peach"
+      id="final-cta"
     >
       <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full border-[42px] border-white/20" />
       <div className="absolute -bottom-24 left-[12%] h-52 w-52 rounded-full border-[34px] border-cobalt/10" />
